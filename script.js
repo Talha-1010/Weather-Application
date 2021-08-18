@@ -29,6 +29,13 @@
                 var figure = document.createElement('figure');
 
 
+                
+
+                var city = document.createElement("h5");
+                city.innerHTML= data.name;
+                city.className = "card-title";
+                cardBody.appendChild(city);
+
                 var icon = document.createElement("img");
                 icon.src = "http://openweathermap.org/img/wn/"+data.weather[0].icon+"@2x.png";
                 icon.subtit
@@ -36,17 +43,9 @@
                 figure.appendChild(icon);
                 
                 var figcaption = document.createElement('figcaption');
-                figcaption.innerHTML = "temp "+ data.main.temp +"°C" + " humidity " + data.main.humidity + " max temp " + data.main.temp_max +"°C" + " min temp " + data.main.temp_min + "°C";
+                figcaption.innerHTML = "curr temp "+ data.main.temp +"°C" + " humidity " + data.main.humidity +"%" + "<br>" + " max temp " + data.main.temp_max +"°C" + " min temp " + data.main.temp_min + "°C";
                 figure.appendChild(figcaption);
-                
-                cardBody.appendChild(figure);
-
-
-
-                var city = document.createElement("h5");
-                city.innerHTML= data.name;
-                city.className = "card-title";
-                cardBody.appendChild(city);
+                cardBody.appendChild(figure);                
                 
                 var desc = document.createElement('p');
                 desc.innerHTML =data.weather[0].description;
