@@ -1,15 +1,10 @@
 (function(){
 
-    fetch("http://api.openweathermap.org/data/2.5/weather?q=Rawalpindi&appid=2743020fa1a091d4c73c116dc96505f7")
-    .then(response =>response.json())
-    .then(data => console.log(data))
-    .catch(err => console.error(err));
-
     var button = document.getElementById("button");
         button.addEventListener("click",function(){
 
             var city = document.getElementById("name").value;
-        fetch("http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=2743020fa1a091d4c73c116dc96505f7")
+        fetch("https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=2743020fa1a091d4c73c116dc96505f7")
         .then(response => response.json())
         .then(
             function(data){
@@ -61,8 +56,8 @@
                 removeButton.innerHTML="remove";
                 cardBody.appendChild(removeButton);
 
-                removeButton.addEventListener("click",function(){
-                        $("#card").remove();
+                removeButton.addEventListener("click",function(event){
+                        event.target.parentElement.parentElement.remove();
                 })
 
 
